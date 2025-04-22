@@ -8,7 +8,8 @@ RUN npm install && npm run build
 
 # Serve with NGINX
 FROM nginx:alpine
-RUN chmod -R 775 /var/cache/nginx /var/run /tmp
+RUN mkdir -p /tmp/client_temp
+COPY nginx.conf /etc/nginx/nginx.conf
 COPY --from=build /app/build /usr/share/nginx/html
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
