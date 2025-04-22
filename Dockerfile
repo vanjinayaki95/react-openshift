@@ -1,5 +1,5 @@
 # Build stage
-FROM node:18 as build
+FROM node:20 as build
 WORKDIR /app
 # Upgrade npm to latest recommended version
 RUN npm install -g npm@11.3.0
