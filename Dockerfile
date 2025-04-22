@@ -2,6 +2,7 @@
 FROM node:20-slim AS build
 WORKDIR /app
 COPY . .
+ENV NODE_OPTIONS=--openssl-legacy-provider
 # Upgrade npm to latest recommended version
 RUN npm install && npm run build
 
