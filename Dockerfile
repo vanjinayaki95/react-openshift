@@ -1,12 +1,9 @@
 # Build stage
-FROM node:20 as build
+FROM node:20-slim AS build
 WORKDIR /app
-# Upgrade npm to latest recommended version
-RUN npm install -g npm@11.3.0
 COPY . .
-RUN npm install && npm audit fix --force
-
-RUN npm run build
+# Upgrade npm to latest recommended version
+RUN npm install && npm run build
 
 # Serve with NGINX
 FROM nginx:alpine
