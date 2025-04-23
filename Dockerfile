@@ -5,7 +5,7 @@ COPY . .
 ENV NODE_OPTIONS=--openssl-legacy-provider
 # Upgrade npm to latest recommended version
 RUN npm install && npm run build
-
+RUN sleep 10
 # Serve with NGINX
 FROM nginx:alpine
 RUN rm /etc/nginx/conf.d/default.conf
